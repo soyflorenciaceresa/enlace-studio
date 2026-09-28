@@ -185,7 +185,7 @@ function ClientsIntro() {
 function TeamSection() {
   return (
     <section className="studio-team">
-      <span className="studio-team-eyebrow">Team</span>
+      <span className="studio-team-eyebrow">Collaborations</span>
       <div className="studio-team-grid">
         {teamMembers.map((member) => (
           <div className="studio-team-card" key={member.name}>
@@ -205,11 +205,38 @@ function TeamSection() {
   )
 }
 
-function CultureSection() {
+function ImageCaption({ caption }) {
+  if (!caption) return null
   return (
-    <section className="studio-culture">
-      <span className="studio-culture-eyebrow">Cultura</span>
-    </section>
+    <div className="studio-team-card-caption">
+      <p>{caption.name}</p>
+      <p>{caption.role}</p>
+    </div>
+  )
+}
+
+function CultureSection({ title = 'Cultura', caption }) {
+  return (
+    <>
+      <section className="studio-culture">
+        <span className="studio-culture-eyebrow">{title}</span>
+      </section>
+
+      <section className="studio-images">
+        <div className="studio-image-card">
+          <div className="studio-image studio-image--static">
+            <img src={staticImage} alt="Estudio Enlace" />
+          </div>
+          <ImageCaption caption={caption} />
+        </div>
+        <div className="studio-image-card">
+          <div className="studio-image studio-image--rotating">
+            <RotatingImage images={rotatingImages} alt="Proceso de trabajo" interval={3500} />
+          </div>
+          <ImageCaption caption={caption} />
+        </div>
+      </section>
+    </>
   )
 }
 
@@ -232,20 +259,13 @@ function Studio() {
         </h2>
       </section>
 
+      <CultureSection title="Team" caption={{ name: 'Ana García', role: 'Directora creativa' }} />
+
       <ClientsIntro />
 
       <TeamSection />
 
       <CultureSection />
-
-      <section className="studio-images">
-        <div className="studio-image studio-image--static">
-          <img src={staticImage} alt="Estudio Enlace" />
-        </div>
-        <div className="studio-image studio-image--rotating">
-          <RotatingImage images={rotatingImages} alt="Proceso de trabajo" interval={3500} />
-        </div>
-      </section>
 
       <Footer />
     </>

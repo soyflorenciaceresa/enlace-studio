@@ -4,7 +4,7 @@ import './Footer.css'
 const navLinks = [
   { to: '/studio', label: 'Studio' },
   { to: '/work', label: 'Work' },
-  { to: '/blog', label: 'Blog' },
+  { to: '/blog', label: 'Notes' },
   { to: '/contact', label: 'Contact' },
 ]
 
