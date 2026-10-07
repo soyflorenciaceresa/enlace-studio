@@ -66,19 +66,18 @@ function Home() {
     <section className="featured">
       <div className="featured-text">
         <p className="featured-copy">
-          De la suma de la estrategia y el diseño centrado en las personas
-          surge nuestra metodología, aportando la flexibilidad que las marcas
-          necesitan para ir más allá de las barreras de su industria y
-          pertenencia.
+          We are a branding and communication studio. We work at the point
+          where an idea stops being intention and starts taking structure: an
+          identity, a language, a system that holds it at every touchpoint.
         </p>
 
-        <span className="featured-eyebrow">Featured projects</span>
+        <span className="featured-eyebrow">Selected work</span>
       </div>
 
       <ProjectsCarousel images={featuredProjectImages} />
 
       <Link to="/work" className="featured-more">
-        Ver mas proyectos
+        See the archive
       </Link>
     </section>
 

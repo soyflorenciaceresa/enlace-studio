@@ -16,20 +16,12 @@ const servicePositions = [
 
 const services = [
   {
+    name: 'Strategy',
+    description: 'Definimos la dirección que da sentido a cada decisión de marca.',
+  },
+  {
     name: 'Branding',
     description: 'Construimos marcas con una idea central sólida que guía cada decisión.',
-  },
-  {
-    name: 'Visual identity',
-    description: 'Sistemas visuales coherentes que dan forma y personalidad a cada marca.',
-  },
-  {
-    name: 'Social media',
-    description: 'Contenido y estrategia para conectar marcas con sus comunidades.',
-  },
-  {
-    name: 'Web design',
-    description: 'Sitios y experiencias digitales pensadas para las personas.',
   },
   {
     name: 'Naming',
@@ -40,8 +32,12 @@ const services = [
     description: 'Diseño de packaging que destaca en el punto de venta.',
   },
   {
-    name: 'Art direction',
-    description: 'Dirección de arte que da coherencia visual a cada pieza.',
+    name: 'Web design',
+    description: 'Sitios y experiencias digitales pensadas para las personas.',
+  },
+  {
+    name: 'Social media',
+    description: 'Contenido y estrategia para conectar marcas con sus comunidades.',
   },
 ].map((service, i) => ({
   ...service,
@@ -50,32 +46,45 @@ const services = [
 }))
 
 const clientNames = [
-  'Abante',
-  'Ansón+Bonet',
-  'Arribas Garamendi',
-  'Ayuntamiento de Toledo',
-  'Dazia',
-  'Calido',
-  'Caja Rural',
-  'Enalta',
-  'INDITEX',
-  'Liga F',
-  'Marqas',
-  'Máshumano',
-  'Mindset',
-  'ODL',
-  'Pascual',
-  'Picnic',
-  'Santander',
-  'Socialmood',
+  'Admin Morales',
+  'Ana y José',
+  'Azulik',
+  'Better Together Homes',
+  'Casa Malca',
+  'Conteiner',
+  'Delek Tulum',
+  'Evan Luthra',
+  'Figmints',
+  'Food & Wine',
+  'Forbes Life',
+  'Forbes México',
+  'Gitano',
+  'Grupo Urbex',
+  'Holistika',
+  'IMMO Investments',
+  'Influence Energy',
+  'Kaira Surf Lodge',
+  'Like Group',
+  'Lucila Barattini',
+  'Melania Cisneros',
+  'Monada',
+  'Papaya Playa Project',
+  'Parvada',
+  'Robb Report',
+  'Samana Group',
+  'Selvazama',
+  'The Freedom Rebel',
+  'The Visionist',
+  'Tulum Crypto Fest',
+  'Zamna Group',
+  'Zorba Beach Homes',
 ]
 
 const teamMembers = [
-  { name: 'Ana García', role: 'Directora creativa' },
-  { name: 'Marc Soler', role: 'Diseño gráfico' },
-  { name: 'Laura Pons', role: 'Diseño digital' },
-  { name: 'Diego Ruiz', role: 'Estrategia de marca' },
-  { name: 'Nora Vidal', role: 'Producción' },
+  { name: 'Influence Energy', role: 'Influencer Marketing' },
+  { name: 'Perfo Studio', role: 'Experiences & Activations' },
+  { name: 'Minimalist', role: 'Performance Marketing' },
+  { name: 'D17 Studio', role: 'Creative Studio' },
 ].map((member, i) => ({
   ...member,
   image: `https://picsum.photos/seed/enlace-team-${i + 1}/500/724`,
@@ -90,14 +99,18 @@ const rotatingImages = [
   'https://picsum.photos/seed/enlace-studio-rotate-5/806/816',
 ]
 
-const methodologyCopy = `De la suma de la estrategia y el diseño centrado en las personas
-surge nuestra metodología, aportando la flexibilidad que las marcas
-necesitan para ir más allá de las barreras de su industria y
-pertenencia.`
+const methodologyCopy = `We analyze the context, define the direction, design the system and
+build the execution. Strategy and design work as one process, so a brand
+makes sense before it looks good.`
 
-const teamCopy = `Detrás de cada proyecto hay un equipo multidisciplinar que combina
-estrategia, diseño y producción, aportando distintas miradas para dar
-forma a ideas que conectan con las personas.`
+const teamCopy = `We work with a network of partner agencies. Each project brings in the
+specialists it needs, from influencer marketing to live experiences.`
+
+const aboutUsCopy = `We met working together on international projects across Europe, and
+the connection was immediate. We also saw how the work was done: rushed,
+with little room for people or process. So we started [ enlace ] to create
+from a better place: time to understand, clear processes, wellbeing, and
+ideas co-created with our clients and partners.`
 
 function useInView(threshold = 0.25) {
   const ref = useRef(null)
@@ -147,7 +160,11 @@ function ServicesSection({ items }) {
           <div
             key={service.name}
             className={`studio-services-preview-item${i === activeIndex ? ' is-visible' : ''}`}
-            style={{ top: service.position.top, left: service.position.left }}
+            style={{
+              top: service.position.top,
+              left: service.position.left,
+              transform: `translate(-${service.position.left}, -${service.position.top})`,
+            }}
           >
             <div className="studio-services-preview-image">
               <img src={service.image} alt={service.name} loading="lazy" />
@@ -165,7 +182,7 @@ function ClientsIntro() {
 
   return (
     <section className="studio-clients-intro" ref={ref}>
-      <span className="studio-clients-eyebrow">Clients who trusted Enlace</span>
+      <span className="studio-clients-eyebrow">Brands we've worked with</span>
       <p className="studio-clients-copy">
         {clientNames.map((name, i) => (
           <span
@@ -185,7 +202,7 @@ function ClientsIntro() {
 function TeamSection() {
   return (
     <section className="studio-team">
-      <span className="studio-team-eyebrow">Collaborations</span>
+      <span className="studio-team-eyebrow">Partner agencies</span>
       <div className="studio-team-grid">
         {teamMembers.map((member) => (
           <div className="studio-team-card" key={member.name}>
@@ -215,11 +232,12 @@ function ImageCaption({ caption }) {
   )
 }
 
-function CultureSection({ title = 'Cultura', caption }) {
+function CultureSection({ title = 'Culture', captions, copy }) {
   return (
     <>
       <section className="studio-culture">
         <span className="studio-culture-eyebrow">{title}</span>
+        {copy && <p className="studio-culture-copy">{copy}</p>}
       </section>
 
       <section className="studio-images">
@@ -227,13 +245,13 @@ function CultureSection({ title = 'Cultura', caption }) {
           <div className="studio-image studio-image--static">
             <img src={staticImage} alt="Estudio Enlace" />
           </div>
-          <ImageCaption caption={caption} />
+          <ImageCaption caption={captions?.[0]} />
         </div>
         <div className="studio-image-card">
           <div className="studio-image studio-image--rotating">
             <RotatingImage images={rotatingImages} alt="Proceso de trabajo" interval={3500} />
           </div>
-          <ImageCaption caption={caption} />
+          <ImageCaption caption={captions?.[1]} />
         </div>
       </section>
     </>
@@ -252,14 +270,21 @@ function Studio() {
       <ServicesSection items={services} />
 
       <section className="studio-tagline">
-        <h2 className="studio-tagline-ideas">Where ideas</h2>
-        <h2 className="studio-tagline-form">
-          <span>find their</span>
-          <span>form</span>
+        <h2 className="studio-tagline-ideas">
+          <span>Clarity</span>
+          <span>organizes.</span>
         </h2>
+        <h2 className="studio-tagline-form">Structure activates.</h2>
       </section>
 
-      <CultureSection title="Team" caption={{ name: 'Ana García', role: 'Directora creativa' }} />
+      <CultureSection
+        title="About us"
+        captions={[
+          { name: 'Florencia Ceresa', role: 'Co founder & Designer' },
+          { name: 'Nicolas Deges', role: 'Co founder & Strategy' },
+        ]}
+        copy={aboutUsCopy}
+      />
 
       <ClientsIntro />
 

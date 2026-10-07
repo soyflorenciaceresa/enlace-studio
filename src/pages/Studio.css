@@ -55,7 +55,7 @@
 .studio-services-preview {
   position: relative;
   width: 100%;
-  min-height: clamp(440px, 40vw, 640px);
+  align-self: stretch;
 }
 
 .studio-services-preview-item {
@@ -99,7 +99,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1729 / 1034;
-  background: #f2f7b5;
+  background: #A1C8FF;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -109,27 +109,28 @@
   margin: 0;
   font-family: var(--heading);
   font-weight: 400;
-  font-size: clamp(32px, 8.56vw, 148px);
+  font-size: clamp(40px, 8.5vw, 148px);
   color: #000;
   white-space: nowrap;
 }
 
 .studio-tagline-ideas {
-  left: 27.94%;
-  top: 55.13%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  line-height: 1;
+  left: 2%;
+  top: 38%;
+  transform: translateY(-50%);
+  text-align: left;
+  line-height: 1.05;
 }
 
 .studio-tagline-form {
-  right: 5.38%;
-  top: 80.17%;
+  right: 2%;
+  top: 88%;
   transform: translateY(-50%);
   text-align: right;
-  line-height: 0.81;
+  line-height: 1.05;
 }
 
+.studio-tagline-ideas span,
 .studio-tagline-form span {
   display: block;
 }
@@ -191,7 +192,7 @@
 
 .studio-team-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
@@ -259,6 +260,16 @@
   display: block;
   margin-bottom: clamp(16px, 2vw, 34px);
   font-size: 14px;
+  color: #000;
+}
+
+.studio-culture-copy {
+  margin: 0 0 clamp(40px, 7vw, 100px);
+  max-width: 1600px;
+  font-family: var(--heading);
+  font-weight: 400;
+  font-size: clamp(20px, 2.8vw, 48px);
+  line-height: 1.05;
   color: #000;
 }
 

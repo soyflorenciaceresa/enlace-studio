@@ -13,10 +13,9 @@ function Footer() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <h2 className="site-footer-heading">
-          <span>Got a project in mind?</span>
+          <span>If you made it this far, let's talk.</span>
           <span>
-            Send us your email to{' '}
-            <a href="mailto:hola@enlacestudio.com">hola@enlacestudio.com</a>
+            <a href="mailto:hola@enlace.studio.com">hola@enlace.studio.com</a>
           </span>
         </h2>
 
@@ -38,6 +37,11 @@ function Footer() {
             <li>
               <a href="https://behance.net" target="_blank" rel="noreferrer">
                 Behance
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/" target="_blank" rel="noreferrer">
+                WhatsApp
               </a>
             </li>
           </ul>

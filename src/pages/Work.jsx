@@ -11,10 +11,9 @@ function Work() {
 
       <section className="work">
         <p className="work-copy">
-          De la suma de la estrategia y el diseño centrado en las personas
-          surge nuestra metodología, aportando la flexibilidad que las marcas
-          necesitan para ir más allá de las barreras de su industria y
-          pertenencia.
+          Every project starts with an idea looking for its form. These are
+          some of the brands we've helped find it, from the first concept to
+          the last touchpoint.
         </p>
 
         <span className="work-eyebrow">Latest projects</span>

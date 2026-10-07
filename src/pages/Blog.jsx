@@ -4,10 +4,9 @@ import Footer from '../components/Footer'
 import { posts } from '../data/posts'
 import './Blog.css'
 
-const methodologyCopy = `De la suma de la estrategia y el diseño centrado en las personas
-surge nuestra metodología, aportando la flexibilidad que las marcas
-necesitan para ir más allá de las barreras de su industria y
-pertenencia.`
+const methodologyCopy = `Notes from the studio. What we learn from our projects, how we think
+about process and what we see in the industry. Thinking out loud about
+how ideas find their form, and everything that happens in between.`
 
 function Blog() {
   return (
