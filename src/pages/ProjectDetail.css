@@ -1,6 +1,6 @@
 .project-detail {
   background: #fafbf8;
-  padding: clamp(40px, 7.5vw, 130px) 2% 0 2%;
+  padding: clamp(40px, 7.5vw, 130px) var(--page-margin) 0 var(--page-margin);
   box-sizing: border-box;
 }
 
@@ -53,6 +53,15 @@ margin-bottom: clamp(20px, 3.445vw, 59.5px);
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.project-hero--natural {
+  aspect-ratio: auto;
+  background: none;
+}
+
+.project-hero--natural img {
+  height: auto;
 }
 
 .project-copy {
@@ -119,6 +128,19 @@ margin-bottom: clamp(20px, 3.445vw, 59.5px);
   display: block;
 }
 
+.project-detail-image--natural {
+  display: flex;
+  align-items: flex-start;
+  aspect-ratio: auto;
+  background: none;
+}
+
+.project-detail-image--natural img {
+  flex: 1 1 0;
+  min-width: 0;
+  height: auto;
+}
+
 /* ---- Team credits ---- */
 .project-team {
   display: flex;
@@ -135,11 +157,51 @@ margin-bottom: clamp(20px, 3.445vw, 59.5px);
   line-height: 1.6;
 }
 
+/* ---- Credits: two team columns + next project ---- */
+.project-credits {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4vw, 64px);
+  margin: clamp(24px, 2.5vw, 44px) 0 clamp(40px, 7vw, 100px) 27.6%;
+  width: 72.4%;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #000;
+}
+
+.project-credits-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+}
+
+.project-credits-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-credits-column p {
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* ---- Mobile ---- */
 @media (max-width: 900px) {
+  .project-credits {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .project-details {
+    --detail-gap: clamp(72px, 12vw, 210px);
+    gap: var(--detail-gap);
+  }
+
   .project-detail-row {
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--detail-gap);
   }
 
   .project-detail-text {
@@ -155,7 +217,7 @@ margin-bottom: clamp(20px, 3.445vw, 59.5px);
 
 @media (max-width: 640px) {
   .project-detail {
-    padding: 40px 20px 0;
+    padding: 40px var(--page-margin) 0;
   }
 
   .project-copy {
@@ -166,5 +228,10 @@ margin-bottom: clamp(20px, 3.445vw, 59.5px);
   .project-team {
     text-align: left;
     margin-left: 0;
+  }
+
+  .project-credits-columns {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
   }
 }

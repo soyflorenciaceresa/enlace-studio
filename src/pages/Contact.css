@@ -109,7 +109,12 @@
     flex-direction: column;
     justify-content: flex-start;
     gap: 40px;
-    padding: 20px 20px 24px;
+    padding: 20px 0 24px;
+  }
+
+  .contact > :not(.site-nav) {
+    margin-left: var(--page-margin);
+    margin-right: var(--page-margin);
   }
 
   .site-nav--overlay {
@@ -137,11 +142,13 @@
     position: static;
     order: 5;
     width: 160px;
+    align-self: flex-end;
+    margin-top: auto;
   }
 
   .contact-copy {
     position: static;
     order: 6;
-    margin-top: auto;
+    margin-top: -24px;
   }
 }

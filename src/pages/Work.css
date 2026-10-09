@@ -1,6 +1,6 @@
 .work {
   background: #FAFBF8;
-  padding: clamp(40px, 7.5vw, 130px) 2% clamp(40px, 7vw, 100px) 2%;
+  padding: clamp(40px, 7.5vw, 130px) var(--page-margin) clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
 }
 

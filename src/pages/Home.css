@@ -31,7 +31,7 @@
 }
 
 .hero-photo--card {
-  right: 2%;
+  right: var(--page-margin);
   top: 16.12%;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .hero-photo--sign {
-  left: 2%;
+  left: var(--page-margin);
   top: 73.05%;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .hero-title--form {
-  right: 2%;
+  right: var(--page-margin);
   top: 82.63%;
   transform: translateY(-50%);
   text-align: right;
@@ -80,7 +80,7 @@
 }
 
 .hero-title--ideas {
-  left: 2%;
+  left: var(--page-margin);
   top: 21.22%;
   transform: translateY(-50%);
   text-align: left;
@@ -94,7 +94,7 @@
 }
 
 .featured-text {
-  padding: 0 2%;
+  padding: 0 var(--page-margin);
 }
 
 .featured-copy {
@@ -117,7 +117,7 @@
 .featured-more {
   display: block;
   width: fit-content;
-  margin: clamp(16px, 2vw, 35px) 2% clamp(40px, 7vw, 100px) auto;
+  margin: clamp(16px, 2vw, 35px) var(--page-margin) clamp(40px, 7vw, 100px) auto;
   font-size: 14px;
   color: #000;
   text-decoration: none;
@@ -128,50 +128,60 @@
   text-underline-offset: 4px;
 }
 
-/* ---- Mobile: stacked layout ---- */
+/* ---- Mobile: scattered collage (reference 436 x 946) ---- */
 @media (max-width: 640px) {
   .hero {
     height: auto;
+    aspect-ratio: 436 / 946;
     min-height: 100svh;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 28px;
-    padding: 20px 20px 32px;
-  }
-
-  .site-nav--overlay {
-    order: 1;
-  }
-
-  .hero-title--ideas {
-    position: static;
-    transform: none;
-    text-align: left;
-    white-space: normal;
-    font-size: clamp(32px, 12vw, 64px);
-    order: 2;
-  }
-
-  .hero-collage {
-    position: static;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    order: 3;
   }
 
   .hero-photo {
-    position: static !important;
-    width: 100% !important;
+    width: 28.5%;
+  }
+
+  .hero-photo--card {
+    left: 36.5%;
+    right: auto;
+    top: 8.67%;
+  }
+
+  .hero-photo--sign {
+    left: 0.2%;
+    top: 40.06%;
+  }
+
+  .hero-photo--cap {
+    left: 56.2%;
+    top: 48.73%;
+  }
+
+  .hero-photo--redsweater {
+    left: 8.26%;
+    top: 82.77%;
+  }
+
+  .hero-photo--monada {
+    left: 40.14%;
+    top: 82.77%;
+  }
+
+  .hero-title {
+    font-size: 10.4vw;
+    line-height: 1;
+  }
+
+  .hero-title--ideas {
+    left: 6.42%;
+    width: 81.19%;
+    top: 30.97%;
+    text-align: justify;
+    text-align-last: justify;
   }
 
   .hero-title--form {
-    position: static;
-    transform: none;
-    text-align: left;
-    font-size: clamp(40px, 15vw, 72px);
-    order: 4;
+    right: 9.63%;
+    top: 75.05%;
   }
 }

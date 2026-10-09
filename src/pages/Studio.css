@@ -1,6 +1,6 @@
 .studio-intro {
   background: #FAFBF8;
-  padding: clamp(40px, 7.5vw, 130px) 2% 0 2%;
+  padding: clamp(40px, 7.5vw, 130px) var(--page-margin) 0 var(--page-margin);
   box-sizing: border-box;
 }
 
@@ -17,7 +17,7 @@
 /* ---- Services ---- */
 .studio-services {
   background: #FAFBF8;
-  padding: clamp(40px, 7vw, 100px) 2% clamp(40px, 7vw, 100px) 2%;
+  padding: clamp(40px, 7vw, 100px) var(--page-margin) clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 40.93%;
@@ -115,7 +115,7 @@
 }
 
 .studio-tagline-ideas {
-  left: 2%;
+  left: var(--page-margin);
   top: 38%;
   transform: translateY(-50%);
   text-align: left;
@@ -123,7 +123,7 @@
 }
 
 .studio-tagline-form {
-  right: 2%;
+  right: var(--page-margin);
   top: 88%;
   transform: translateY(-50%);
   text-align: right;
@@ -138,7 +138,7 @@
 /* ---- Clients intro (eyebrow + wrapped client list) ---- */
 .studio-clients-intro {
   background: #FAFBF8;
-  padding: clamp(40px, 7vw, 100px) 2%;
+  padding: clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
@@ -178,7 +178,7 @@
 /* ---- Team (eyebrow + row of 5 images) ---- */
 .studio-team {
   background: #FAFBF8;
-  padding: clamp(40px, 7vw, 100px) 2%;
+  padding: clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
   border-bottom: 1px solid #000;
 }
@@ -252,7 +252,7 @@
 /* ---- Culture (eyebrow) ---- */
 .studio-culture {
   background: #FAFBF8;
-  padding: clamp(40px, 7vw, 100px) 2% 0 2%;
+  padding: clamp(40px, 7vw, 100px) var(--page-margin) 0 var(--page-margin);
   box-sizing: border-box;
 }
 
@@ -277,7 +277,7 @@
 .studio-images {
   display: flex;
   gap: 12px;
-  padding: 0 2% clamp(40px, 7vw, 100px) 2%;
+  padding: 0 var(--page-margin) clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
   background: #FAFBF8;
 }
@@ -322,13 +322,17 @@
 }
 
 @media (max-width: 640px) {
+  .studio-services-heading span {
+    color: #000;
+  }
+
   .studio-tagline {
     aspect-ratio: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 24px;
-    padding: 64px 20px;
+    padding: 64px var(--page-margin);
   }
 
   .studio-tagline h2 {
@@ -346,11 +350,19 @@
     text-align: left;
   }
 
-  .studio-images {
+  .studio-images:not(.studio-images--paired) {
     flex-direction: column;
   }
 
-  .studio-image {
+  .studio-images:not(.studio-images--paired) .studio-image {
     aspect-ratio: 4 / 3;
+  }
+
+  .studio-images--paired {
+    gap: 10px;
+  }
+
+  .studio-images--paired .studio-image {
+    aspect-ratio: 3 / 4;
   }
 }

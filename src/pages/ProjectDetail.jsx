@@ -23,6 +23,9 @@ const detailSections = [
   },
 ]
 
+const defaultExcerpt =
+  'Let the writing speak for itself. Keep a consistent tone and voice throughout the website to stay true to the brand image and give visitors a taste of the company’s values and personality.'
+
 const methodologyCopy =
   'De la suma de la estrategia y el diseño centrado en las personas surge nuestra metodología, aportando la flexibilidad que las marcas necesitan.'
 
@@ -34,8 +37,11 @@ function ProjectDetail() {
     return <Navigate to="/work" replace />
   }
 
-  const heroImage = `https://picsum.photos/seed/enlace-project-hero-${project.slug}/1599/816`
-  const detailImages = detailSections.map(
+  const heroImage =
+    project.detail?.heroImage ??
+    `https://picsum.photos/seed/enlace-project-hero-${project.slug}/1599/816`
+  const sections = project.detail?.sections ?? detailSections
+  const detailImages = sections.map(
     (_, i) => `https://picsum.photos/seed/enlace-project-detail-${project.slug}-${i + 1}/1155/816`,
   )
 
@@ -46,54 +52,76 @@ function ProjectDetail() {
       <article className="project-detail">
         <header className="project-header">
           <h1 className="project-title">{project.name}</h1>
-          <p className="project-excerpt">
-            Let the writing speak for itself. Keep a consistent tone and voice
-            throughout the website to stay true to the brand image and give
-            visitors a taste of the company’s values and personality.
-          </p>
+          <p className="project-excerpt">{project.detail?.excerpt ?? defaultExcerpt}</p>
           <div className="project-meta">
-            <p>{project.category}</p>
-            <p>Ubicación: Buenos Aires, Argentina</p>
-            <p>Año: 2026</p>
+            <p>{project.detail?.category ?? project.category}</p>
+            <p>{project.detail?.location ?? 'Ubicación: Buenos Aires, Argentina'}</p>
+            <p>{project.detail?.year ?? 'Año: 2026'}</p>
           </div>
         </header>
 
-        <div className="project-hero">
+        <div
+          className={`project-hero${project.detail?.heroImage ? ' project-hero--natural' : ''}`}
+        >
           <img src={heroImage} alt={project.name} />
         </div>
 
-        <p className="project-copy">{methodologyCopy}</p>
+        <p className="project-copy">{project.detail?.copy ?? methodologyCopy}</p>
 
         <div className="project-details">
-          {detailSections.map((section, i) => (
+          {sections.map((section, i) => (
             <div className="project-detail-row" key={section.title}>
               <div className="project-detail-text">
                 <h2>{section.title}</h2>
                 <p>{section.body}</p>
+                {section.attribution && <p>{section.attribution}</p>}
               </div>
-              <div className="project-detail-image">
-                <img src={detailImages[i]} alt="" loading="lazy" />
+              <div
+                className={`project-detail-image${section.images ? ' project-detail-image--natural' : ''}`}
+              >
+                {(section.images ?? [detailImages[i]]).map((src) => (
+                  <img src={src} alt="" loading="lazy" key={src} />
+                ))}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="project-team">
-          <span>Team</span>
-          <p>
-            Director, Brand Marketing
-            <br />
-            Jessie Young
-            <br />
-            Design Program Director
-            <br />
-            Kristen Conner
-            <br />
-            Principal Designer
-            <br />
-            Mikaila Weaver
-          </p>
-        </div>
+        {project.detail?.team ? (
+          <div className="project-credits">
+            <div className="project-credits-columns">
+              {project.detail.team.map((column) => (
+                <div className="project-credits-column" key={column.title}>
+                  <span>{column.title}</span>
+                  {column.members.map((member) => (
+                    <p key={member.name}>
+                      {member.role}
+                      <br />
+                      {member.name}
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="project-team">
+            <span>Team</span>
+            <p>
+              Director, Brand Marketing
+              <br />
+              Jessie Young
+              <br />
+              Design Program Director
+              <br />
+              Kristen Conner
+              <br />
+              Principal Designer
+              <br />
+              Mikaila Weaver
+            </p>
+          </div>
+        )}
       </article>
 
       <Footer />

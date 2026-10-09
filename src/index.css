@@ -30,6 +30,16 @@
   }
 }
 
+:root {
+  --page-margin: 2%;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-margin: 20px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;

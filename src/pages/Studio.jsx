@@ -17,27 +17,31 @@ const servicePositions = [
 const services = [
   {
     name: 'Strategy',
-    description: 'Definimos la dirección que da sentido a cada decisión de marca.',
+    description: 'Clarity before design. We define positioning, audience and the path to launch.',
   },
   {
     name: 'Branding',
-    description: 'Construimos marcas con una idea central sólida que guía cada decisión.',
+    description:
+      'A visual and verbal identity built on one clear idea, coherent at every touchpoint.',
   },
   {
     name: 'Naming',
-    description: 'Nombres memorables que capturan la esencia de cada proyecto.',
+    description: 'The right name isn’t imposed. We find it in what the brand already is.',
   },
   {
     name: 'Packaging',
-    description: 'Diseño de packaging que destaca en el punto de venta.',
+    description:
+      'Design that turns a product into something you want to hold, ready to print and stand out.',
   },
   {
     name: 'Web design',
-    description: 'Sitios y experiencias digitales pensadas para las personas.',
+    description:
+      'Websites and apps built to the right scale, from self-managed sites to custom platforms.',
   },
   {
     name: 'Social media',
-    description: 'Contenido y estrategia para conectar marcas con sus comunidades.',
+    description:
+      'A clear system for what to say, where and how. As a ready-to-use kit or monthly',
   },
 ].map((service, i) => ({
   ...service,
@@ -232,7 +236,7 @@ function ImageCaption({ caption }) {
   )
 }
 
-function CultureSection({ title = 'Culture', captions, copy }) {
+function CultureSection({ title = 'Culture', captions, copy, paired = false }) {
   return (
     <>
       <section className="studio-culture">
@@ -240,7 +244,7 @@ function CultureSection({ title = 'Culture', captions, copy }) {
         {copy && <p className="studio-culture-copy">{copy}</p>}
       </section>
 
-      <section className="studio-images">
+      <section className={`studio-images${paired ? ' studio-images--paired' : ''}`}>
         <div className="studio-image-card">
           <div className="studio-image studio-image--static">
             <img src={staticImage} alt="Estudio Enlace" />
@@ -284,6 +288,7 @@ function Studio() {
           { name: 'Nicolas Deges', role: 'Co founder & Strategy' },
         ]}
         copy={aboutUsCopy}
+        paired
       />
 
       <ClientsIntro />

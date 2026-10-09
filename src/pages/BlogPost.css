@@ -1,6 +1,6 @@
 .blogpost {
   background: #FAFBF8;
-  padding: clamp(40px, 7.5vw, 130px) 2% 0 2%;
+  padding: clamp(40px, 7.5vw, 130px) var(--page-margin) 0 var(--page-margin);
   box-sizing: border-box;
 }
 
@@ -103,7 +103,7 @@
 /* ---- More articles ---- */
 .blogpost-more {
   background: #FAFBF8;
-  padding: clamp(40px, 7vw, 100px) 2% clamp(40px, 7vw, 100px) 2%;
+  padding: clamp(40px, 7vw, 100px) var(--page-margin) clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
 }
 
@@ -177,11 +177,11 @@
 
 @media (max-width: 640px) {
   .blogpost {
-    padding: 40px 20px 0;
+    padding: 40px var(--page-margin) 0;
   }
 
   .blogpost-more {
-    padding: 48px 20px;
+    padding: 48px var(--page-margin);
   }
 
   .blogpost-more-grid {
