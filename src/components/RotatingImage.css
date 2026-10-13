@@ -18,3 +18,7 @@
 .rotating-image img.is-active {
   opacity: 1;
 }
+
+.rotating-image--cut img {
+  transition: none;
+}

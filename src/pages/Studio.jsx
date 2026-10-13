@@ -1,18 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import SiteNav from '../components/SiteNav'
 import Footer from '../components/Footer'
 import RotatingImage from '../components/RotatingImage'
 import './Studio.css'
-
-const servicePositions = [
-  { top: '0%', left: '0%' },
-  { top: '58%', left: '55%' },
-  { top: '12%', left: '62%' },
-  { top: '65%', left: '5%' },
-  { top: '30%', left: '30%' },
-  { top: '2%', left: '58%' },
-  { top: '68%', left: '32%' },
-]
 
 const services = [
   {
@@ -45,8 +35,7 @@ const services = [
   },
 ].map((service, i) => ({
   ...service,
-  image: `https://picsum.photos/seed/enlace-service-${i + 1}/220/220`,
-  position: servicePositions[i % servicePositions.length],
+  image: `https://picsum.photos/seed/enlace-service-${i + 1}/220/276`,
 }))
 
 const clientNames = [
@@ -141,12 +130,47 @@ function useInView(threshold = 0.25) {
 
 function ServicesSection({ items }) {
   const [activeIndex, setActiveIndex] = useState(null)
+  const [tops, setTops] = useState([])
+  const headingRef = useRef(null)
+  const previewRef = useRef(null)
+  const itemRefs = useRef([])
+
+  useLayoutEffect(() => {
+    const place = () => {
+      const heading = headingRef.current
+      const preview = previewRef.current
+      if (!heading || !preview || preview.offsetParent === null) return
+
+      const previewBox = preview.getBoundingClientRect()
+      const padding = parseFloat(getComputedStyle(preview.parentElement).paddingTop)
+      const bleed = Math.max(padding - 16, 0)
+
+      // Every preview shares the spot of the first service (Strategy).
+      const line = heading.children[0].getBoundingClientRect()
+      const lineCenter = line.top + line.height / 2 - previewBox.top
+      const firstImageHeight = itemRefs.current[0].firstElementChild.offsetHeight
+      const lowest = Math.min(
+        ...itemRefs.current.map((item) => previewBox.height + bleed - item.offsetHeight),
+      )
+      const top = Math.min(Math.max(lineCenter - firstImageHeight / 2, -bleed), lowest)
+
+      setTops(items.map(() => top))
+    }
+
+    place()
+    window.addEventListener('resize', place)
+    return () => window.removeEventListener('resize', place)
+  }, [items])
 
   return (
     <section className="studio-services">
       <div className="studio-services-text">
         <span className="studio-services-eyebrow">Services</span>
-        <h2 className="studio-services-heading" onMouseLeave={() => setActiveIndex(null)}>
+        <h2
+          className="studio-services-heading"
+          ref={headingRef}
+          onMouseLeave={() => setActiveIndex(null)}
+        >
           {items.map((service, i) => (
             <span
               key={service.name}
@@ -159,16 +183,15 @@ function ServicesSection({ items }) {
         </h2>
       </div>
 
-      <div className="studio-services-preview">
+      <div className="studio-services-preview" ref={previewRef}>
         {items.map((service, i) => (
           <div
             key={service.name}
-            className={`studio-services-preview-item${i === activeIndex ? ' is-visible' : ''}`}
-            style={{
-              top: service.position.top,
-              left: service.position.left,
-              transform: `translate(-${service.position.left}, -${service.position.top})`,
+            ref={(el) => {
+              itemRefs.current[i] = el
             }}
+            className={`studio-services-preview-item${i === activeIndex ? ' is-visible' : ''}`}
+            style={{ top: tops[i] ?? 0 }}
           >
             <div className="studio-services-preview-image">
               <img src={service.image} alt={service.name} loading="lazy" />
@@ -236,15 +259,23 @@ function ImageCaption({ caption }) {
   )
 }
 
-function CultureSection({ title = 'Culture', captions, copy, paired = false }) {
+function CultureSection({
+  title = 'Culture',
+  captions,
+  copy,
+  stacked = false,
+  interval = 3500,
+  tone,
+}) {
+  const toneClass = tone ? ` studio-tone--${tone}` : ''
   return (
     <>
-      <section className="studio-culture">
+      <section className={`studio-culture${toneClass}`}>
         <span className="studio-culture-eyebrow">{title}</span>
         {copy && <p className="studio-culture-copy">{copy}</p>}
       </section>
 
-      <section className={`studio-images${paired ? ' studio-images--paired' : ''}`}>
+      <section className={`studio-images${stacked ? ' studio-images--stacked' : ''}${toneClass}`}>
         <div className="studio-image-card">
           <div className="studio-image studio-image--static">
             <img src={staticImage} alt="Estudio Enlace" />
@@ -253,7 +284,12 @@ function CultureSection({ title = 'Culture', captions, copy, paired = false }) {
         </div>
         <div className="studio-image-card">
           <div className="studio-image studio-image--rotating">
-            <RotatingImage images={rotatingImages} alt="Proceso de trabajo" interval={3500} />
+            <RotatingImage
+              images={rotatingImages}
+              alt="Proceso de trabajo"
+              interval={interval}
+              className={interval < 1000 ? 'rotating-image--cut' : ''}
+            />
           </div>
           <ImageCaption caption={captions?.[1]} />
         </div>
@@ -273,14 +309,6 @@ function Studio() {
 
       <ServicesSection items={services} />
 
-      <section className="studio-tagline">
-        <h2 className="studio-tagline-ideas">
-          <span>Clarity</span>
-          <span>organizes.</span>
-        </h2>
-        <h2 className="studio-tagline-form">Structure activates.</h2>
-      </section>
-
       <CultureSection
         title="About us"
         captions={[
@@ -288,14 +316,15 @@ function Studio() {
           { name: 'Nicolas Deges', role: 'Co founder & Strategy' },
         ]}
         copy={aboutUsCopy}
-        paired
+        stacked
+        tone="blue"
       />
 
       <ClientsIntro />
 
       <TeamSection />
 
-      <CultureSection />
+      <CultureSection interval={500} />
 
       <Footer />
     </>

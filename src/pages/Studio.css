@@ -60,10 +60,11 @@
 
 .studio-services-preview-item {
   position: absolute;
+  right: 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 220px;
+  width: clamp(76px, min(12.73vw, 22.4vh), 220px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
@@ -75,7 +76,7 @@
 
 .studio-services-preview-image {
   width: clamp(76px, min(12.73vw, 22.4vh), 220px);
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 0.798;
   background: #d9d9d9;
   overflow: hidden;
 }
@@ -94,53 +95,11 @@
   color: #000;
 }
 
-/* ---- Tagline (Where ideas / find their form) ---- */
-.studio-tagline {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1729 / 1034;
-  background: #A1C8FF;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.studio-tagline h2 {
-  position: absolute;
-  margin: 0;
-  font-family: var(--heading);
-  font-weight: 400;
-  font-size: clamp(40px, 8.5vw, 148px);
-  color: #000;
-  white-space: nowrap;
-}
-
-.studio-tagline-ideas {
-  left: var(--page-margin);
-  top: 38%;
-  transform: translateY(-50%);
-  text-align: left;
-  line-height: 1.05;
-}
-
-.studio-tagline-form {
-  right: var(--page-margin);
-  top: 88%;
-  transform: translateY(-50%);
-  text-align: right;
-  line-height: 1.05;
-}
-
-.studio-tagline-ideas span,
-.studio-tagline-form span {
-  display: block;
-}
-
 /* ---- Clients intro (eyebrow + wrapped client list) ---- */
 .studio-clients-intro {
   background: #FAFBF8;
   padding: clamp(40px, 7vw, 100px) var(--page-margin);
   box-sizing: border-box;
-  border-top: 1px solid #000;
   border-bottom: 1px solid #000;
 }
 
@@ -273,6 +232,11 @@
   color: #000;
 }
 
+.studio-culture.studio-tone--blue,
+.studio-images.studio-tone--blue {
+  background: #A1C8FF;
+}
+
 /* ---- Two images (static + rotating) ---- */
 .studio-images {
   display: flex;
@@ -308,6 +272,29 @@
   display: block;
 }
 
+/* Stacked variant: one photo per row, caption beside it, hero-tile format */
+.studio-images--stacked {
+  flex-direction: column;
+}
+
+.studio-images--stacked .studio-image-card {
+  flex: none;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: clamp(12px, 1.4vw, 24px);
+}
+
+.studio-images--stacked .studio-image {
+  flex: none;
+  width: 24.5%;
+  aspect-ratio: 0.798;
+}
+
+.studio-images--stacked .studio-team-card-caption {
+  margin-bottom: -0.58em;
+  margin-bottom: calc(0.354em - 0.5lh);
+}
+
 /* ---- Mobile ---- */
 
 @media (max-width: 900px) {
@@ -326,43 +313,15 @@
     color: #000;
   }
 
-  .studio-tagline {
-    aspect-ratio: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
-    padding: 64px var(--page-margin);
-  }
-
-  .studio-tagline h2 {
-    position: static;
-    transform: none;
-    white-space: normal;
-    font-size: clamp(32px, 12vw, 64px);
-  }
-
-  .studio-tagline-ideas {
-    text-align: left;
-  }
-
-  .studio-tagline-form {
-    text-align: left;
-  }
-
-  .studio-images:not(.studio-images--paired) {
+  .studio-images:not(.studio-images--stacked) {
     flex-direction: column;
   }
 
-  .studio-images:not(.studio-images--paired) .studio-image {
+  .studio-images:not(.studio-images--stacked) .studio-image {
     aspect-ratio: 4 / 3;
   }
 
-  .studio-images--paired {
-    gap: 10px;
-  }
-
-  .studio-images--paired .studio-image {
-    aspect-ratio: 3 / 4;
+  .studio-images--stacked .studio-image {
+    width: 50%;
   }
 }

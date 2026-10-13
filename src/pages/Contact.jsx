@@ -1,7 +1,7 @@
 import SiteNav from '../components/SiteNav'
 import './Contact.css'
 
-const image = 'https://picsum.photos/seed/enlace-contact/220/220'
+const image = 'https://picsum.photos/seed/enlace-contact/220/276'
 
 function Contact() {
   return (

@@ -77,9 +77,9 @@
 .contact-image {
   position: absolute;
   right: 2%;
-  top: 72.81%;
+  bottom: max(calc(5.81% - 26px), 24px);
   width: clamp(76px, min(12.73vw, 22.4vh), 220px);
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 0.798;
   overflow: hidden;
 }
 
