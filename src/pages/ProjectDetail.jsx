@@ -69,22 +69,27 @@ function ProjectDetail() {
         <p className="project-copy">{project.detail?.copy ?? methodologyCopy}</p>
 
         <div className="project-details">
-          {sections.map((section, i) => (
-            <div className="project-detail-row" key={section.title}>
-              <div className="project-detail-text">
-                <h2>{section.title}</h2>
-                <p>{section.body}</p>
-                {section.attribution && <p>{section.attribution}</p>}
+          {sections.map((section, i) => {
+            if (section.stage) return null
+            const stage = sections[i - 1]?.stage
+            return (
+              <div className="project-detail-row" key={section.title}>
+                <div className="project-detail-text">
+                  {stage && <span className="project-detail-stage">{stage}</span>}
+                  <h2>{section.title}</h2>
+                  <p>{section.body}</p>
+                  {section.attribution && <p>{section.attribution}</p>}
+                </div>
+                <div
+                  className={`project-detail-image${section.images ? ' project-detail-image--natural' : ''}`}
+                >
+                  {(section.images ?? [detailImages[i]]).map((src) => (
+                    <img src={src} alt="" loading="lazy" key={src} />
+                  ))}
+                </div>
               </div>
-              <div
-                className={`project-detail-image${section.images ? ' project-detail-image--natural' : ''}`}
-              >
-                {(section.images ?? [detailImages[i]]).map((src) => (
-                  <img src={src} alt="" loading="lazy" key={src} />
-                ))}
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {project.detail?.team ? (

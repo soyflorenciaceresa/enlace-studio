@@ -61,6 +61,10 @@
   margin: 0;
 }
 
+.work-card-caption p + p {
+  margin-top: -8px;
+}
+
 @media (max-width: 900px) {
   .work-grid {
     grid-template-columns: repeat(3, 1fr);

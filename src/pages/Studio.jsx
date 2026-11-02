@@ -2,6 +2,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import SiteNav from '../components/SiteNav'
 import Footer from '../components/Footer'
 import RotatingImage from '../components/RotatingImage'
+import aboutFlorencia from '../assets/studio/about-florencia.jpg'
+import aboutNicolas from '../assets/studio/about-nicolas.jpg'
 import './Studio.css'
 
 const services = [
@@ -262,6 +264,7 @@ function ImageCaption({ caption }) {
 function CultureSection({
   title = 'Culture',
   captions,
+  photos,
   copy,
   stacked = false,
   interval = 3500,
@@ -278,18 +281,22 @@ function CultureSection({
       <section className={`studio-images${stacked ? ' studio-images--stacked' : ''}${toneClass}`}>
         <div className="studio-image-card">
           <div className="studio-image studio-image--static">
-            <img src={staticImage} alt="Estudio Enlace" />
+            <img src={photos?.[0].src ?? staticImage} alt={photos?.[0].alt ?? 'Estudio Enlace'} />
           </div>
           <ImageCaption caption={captions?.[0]} />
         </div>
         <div className="studio-image-card">
           <div className="studio-image studio-image--rotating">
-            <RotatingImage
-              images={rotatingImages}
-              alt="Proceso de trabajo"
-              interval={interval}
-              className={interval < 1000 ? 'rotating-image--cut' : ''}
-            />
+            {photos ? (
+              <img src={photos[1].src} alt={photos[1].alt} />
+            ) : (
+              <RotatingImage
+                images={rotatingImages}
+                alt="Proceso de trabajo"
+                interval={interval}
+                className={interval < 1000 ? 'rotating-image--cut' : ''}
+              />
+            )}
           </div>
           <ImageCaption caption={captions?.[1]} />
         </div>
@@ -312,8 +319,12 @@ function Studio() {
       <CultureSection
         title="About us"
         captions={[
-          { name: 'Florencia Ceresa', role: 'Co founder & Designer' },
-          { name: 'Nicolas Deges', role: 'Co founder & Strategy' },
+          { name: 'Florencia Ceresa', role: 'Co founder · Design' },
+          { name: 'Nicolas Deges', role: 'Co founder · Narrative Craft & Strategy' },
+        ]}
+        photos={[
+          { src: aboutFlorencia, alt: 'Florencia Ceresa' },
+          { src: aboutNicolas, alt: 'Nicolas Deges' },
         ]}
         copy={aboutUsCopy}
         stacked

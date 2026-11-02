@@ -19,6 +19,13 @@ import conteinerSlide1 from '../assets/hero/conteiner-carousel-1.jpg'
 import conteinerSlide2 from '../assets/hero/conteiner-carousel-2.jpg'
 import conteinerSlide3 from '../assets/hero/conteiner-carousel-3.jpg'
 import tilePoster from '../assets/hero/home-poster.jpg'
+import selectedMonada from '../assets/work/selected-monada.jpg'
+import selectedDoorHanger from '../assets/work/selected-door-hanger.jpg'
+import selectedTote from '../assets/work/selected-tote.jpg'
+import selectedGrupoUrbex from '../assets/work/selected-grupo-urbex.jpg'
+import selectedSurfFin from '../assets/work/selected-surf-fin.jpg'
+import selectedLucila from '../assets/work/selected-lucila-barattini.jpg'
+import selectedConteiner from '../assets/work/selected-conteiner-poster.jpg'
 import './Home.css'
 
 const slides = (name) => [2, 3].map((n) => `https://picsum.photos/seed/enlace-hero-${name}-${n}/392/490`)
@@ -59,10 +66,15 @@ function Tile({ name, className = '' }) {
   )
 }
 
-const featuredProjectImages = Array.from(
-  { length: 8 },
-  (_, i) => `https://picsum.photos/seed/enlace-project-${i + 1}/600/800`,
-)
+const featuredProjectImages = [
+  selectedMonada,
+  selectedDoorHanger,
+  selectedTote,
+  selectedGrupoUrbex,
+  selectedSurfFin,
+  selectedLucila,
+  selectedConteiner,
+]
 
 const redSweaterImages = [
   redSweaterImg1,
@@ -145,7 +157,7 @@ function Home() {
         <span className="featured-eyebrow">Selected work</span>
       </div>
 
-      <ProjectsCarousel images={featuredProjectImages} />
+      <ProjectsCarousel images={featuredProjectImages} duration={25} />
 
       <Link to="/work" className="featured-more">
         See the archive
