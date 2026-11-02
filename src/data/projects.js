@@ -17,8 +17,15 @@ import btHomesSystem from '../assets/work/bt-homes-system.webp'
 import btHomesQuote from '../assets/work/bt-homes-quote.webp'
 import btHomesResult from '../assets/work/bt-homes-result.webp'
 import btHomesCopywriting from '../assets/work/bt-homes-copywriting.webp'
-import kairaConcept from '../assets/work/kaira-concept.jpg'
-import kairaTone from '../assets/work/kaira-tone.webp'
+import kairaHero from '../assets/work/kaira-hero.webp'
+import kairaChallenge from '../assets/work/kaira-challenge.webp'
+import kairaConcept from '../assets/work/kaira-concept.webp'
+import kairaLogo from '../assets/work/kaira-logo.jpg'
+import kairaCapStickers from '../assets/work/kaira-cap-stickers.jpg'
+import kairaColor from '../assets/work/kaira-color.webp'
+import kairaIllustration from '../assets/work/kaira-illustration.jpg'
+import kairaResult from '../assets/work/kaira-result.jpg'
+import kairaQuote from '../assets/work/kaira-quote.webp'
 import monadaImage from '../assets/work/monada.jpg'
 import monadaHero from '../assets/work/monada-hero.jpg'
 import monadaChallenge from '../assets/work/monada-challenge.jpg'
@@ -48,6 +55,7 @@ export const projects = [
     col: 1,
     image: kairaCover,
     detail: {
+      heroImage: kairaHero,
       excerpt:
         "A surf lodge in the Mentawai Islands, built with a clear identity from day one. We defined what it is, who it's for and how it looks before the first guest arrives.",
       category: 'Concept & Brand Identity',
@@ -57,6 +65,7 @@ export const projects = [
       sections: [
         {
           title: 'The challenge',
+          images: [kairaChallenge],
           body: "Mentawai is one of the world's most famous surf destinations, and most lodges there compete on the same things: waves, rooms, logistics. Kaira needed more. The challenge was to understand the island's culture, its dances and traditions, and translate it into a visual and verbal system.",
         },
         {
@@ -66,27 +75,32 @@ export const projects = [
         },
         {
           title: 'Tone of Voice',
-          images: [kairaTone],
+          images: [kairaCapStickers],
           body: 'Short sentences, with space between them. A voice that sounds like the island: calm, direct and honest. It invites without selling: Stay. Surf. Explore. Slow down.',
         },
         {
           title: 'The Logo',
+          images: [kairaLogo],
           body: 'A bold, rounded wordmark paired with a hand-drawn symbol shaped by the island’s nature. Solid enough to hold the brand, loose enough to feel made by hand, like everything on Mentawai.',
         },
         {
           title: 'Color',
+          images: [kairaColor],
           body: 'Deep ocean blue and warm sand. A palette taken from where Kaira lives: the water at dusk and the beach at noon.',
         },
         {
           title: 'Illustration',
+          images: [kairaIllustration],
           body: 'A set of hand-drawn icons, from waves and palms to a figure in motion inspired by the turuk laggai, the traditional Mentawai dance. They carry the culture into every touchpoint without turning it into decoration.',
         },
         {
           title: 'The result',
+          images: [kairaResult],
           body: 'A brand ready to grow: final brandbook in Spanish and English, an institutional presentation and an Instagram content kit.',
         },
         {
           title: 'Client quote',
+          images: [kairaQuote],
           body: '“Thank you, Nico and Flor, for your time, your minds and for helping us build this. Your professionalism and the energy you put into it, as if it were your own, tell us we’re on the right path.”',
           attribution: 'Ignacio Coppa, Co-Founder',
         },
