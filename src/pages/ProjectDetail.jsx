@@ -61,9 +61,15 @@ function ProjectDetail() {
         </header>
 
         <div
-          className={`project-hero${project.detail?.heroImage ? ' project-hero--natural' : ''}`}
+          className={`project-hero${
+            project.detail?.heroImage || project.detail?.heroVideo ? ' project-hero--natural' : ''
+          }`}
         >
-          <img src={heroImage} alt={project.name} />
+          {project.detail?.heroVideo ? (
+            <video src={project.detail.heroVideo} autoPlay muted loop playsInline />
+          ) : (
+            <img src={heroImage} alt={project.name} />
+          )}
         </div>
 
         <p className="project-copy">{project.detail?.copy ?? methodologyCopy}</p>
@@ -94,7 +100,10 @@ function ProjectDetail() {
 
         {project.detail?.team ? (
           <div className="project-credits">
-            <div className="project-credits-columns">
+            <div
+              className="project-credits-columns"
+              style={{ '--credits-columns': project.detail.team.length }}
+            >
               {project.detail.team.map((column) => (
                 <div className="project-credits-column" key={column.title}>
                   <span>{column.title}</span>

@@ -1,9 +1,31 @@
 import kairaCover from '../assets/work/kaira-cover.jpg'
+import lucilaBarattiniHeroVideo from '../assets/work/lucila-barattini-hero.mp4'
+import lucilaBarattiniConcept from '../assets/work/lucila-barattini-concept.webp'
+import lucilaBarattiniChallenge from '../assets/work/lucila-barattini-challenge.webp'
 import grupoUrbexCover from '../assets/work/grupo-urbex-cover.jpg'
+import grupoUrbexHero from '../assets/work/grupo-urbex-hero.webp'
+import grupoUrbexChallenge from '../assets/work/grupo-urbex-challenge.webp'
+import grupoUrbexTone from '../assets/work/grupo-urbex-tone.webp'
+import grupoUrbexLogoSystem from '../assets/work/grupo-urbex-logo-system.webp'
+import grupoUrbexColor from '../assets/work/grupo-urbex-color.webp'
+import grupoUrbexPhotography from '../assets/work/grupo-urbex-photography.webp'
+import grupoUrbexResult from '../assets/work/grupo-urbex-result.webp'
+import grupoUrbexQuote from '../assets/work/grupo-urbex-quote.webp'
+import grupoUrbexLogo from '../assets/work/grupo-urbex-logo.webp'
 import betterTogetherCover from '../assets/work/better-together-cover.jpg'
 import lucilaBarattiniCover from '../assets/work/lucila-barattini-cover.jpg'
 import influenceEnergyCover from '../assets/work/influence-energy-cover.jpg'
 import conteinerCover from '../assets/work/conteiner-cover.jpg'
+import conteinerHero from '../assets/work/conteiner-hero.webp'
+import conteinerChallenge from '../assets/work/conteiner-challenge.webp'
+import conteinerConcept from '../assets/work/conteiner-concept.webp'
+import conteinerTone from '../assets/work/conteiner-tone.webp'
+import conteinerLogo from '../assets/work/conteiner-logo.webp'
+import conteinerColor from '../assets/work/conteiner-color.webp'
+import conteinerTypography from '../assets/work/conteiner-typography.webp'
+import conteinerPhotostyle from '../assets/work/conteiner-photostyle.webp'
+import conteinerResult from '../assets/work/conteiner-result.webp'
+import conteinerQuote from '../assets/work/conteiner-quote.webp'
 import btHomesHero from '../assets/work/bt-homes-hero.webp'
 import btHomesChallenge from '../assets/work/bt-homes-challenge.webp'
 import btHomesConcept from '../assets/work/bt-homes-concept.jpg'
@@ -129,6 +151,71 @@ export const projects = [
     row: 3,
     col: 1,
     image: grupoUrbexCover,
+    detail: {
+      heroImage: grupoUrbexHero,
+      excerpt:
+        'A real estate investment group that opens the market from the inside. We built its brand from the ground up: concept, voice, visual system and the tools to communicate from day one.',
+      category: 'Concept & Brand Identity',
+      location: 'Buenos Aires, Argentina',
+      year: '2026',
+      copy: 'We don’t sell square meters. We open doors.',
+      sections: [
+        {
+          title: 'The challenge',
+          images: [grupoUrbexChallenge],
+          body: 'In Argentina, brick has always been the refuge: the safest way to protect capital in an unpredictable country. But the refuge became a trap. Developers build the same thing, agencies sell the same thing, and investors get stuck with options designed to sell square meters, not to build businesses. Urbex operates differently. Its brand had to make that difference visible.',
+        },
+        {
+          title: 'The concept',
+          images: [grupoUrbexLogo],
+          body: 'We built the brand on a single split: the outside and the inside. The outside is the market everyone sees. The inside is where the real deals happen: flipping, developments, collective funds, buy and rent. Urbex is the door between both. The positioning became Business from the inside, with a line that sets the ambition: Preserving capital is the floor. Building businesses is the ceiling.',
+        },
+        {
+          title: 'Tone of Voice',
+          images: [grupoUrbexTone],
+          body: 'Clear, direct and close, like a partner who knows the market from within, not a salesperson. It explains before it persuades and never overpromises. Its archetype is The Strategist: it doesn’t follow the market, it reads it. The tagline works as a path: Enter. Invest. Build.',
+        },
+        {
+          title: 'The Logo',
+          images: [grupoUrbexLogoSystem],
+          body: 'We explored two creative directions, The Structure and The Signal. The chosen identity evolved into a U isotype shaped like a building: the brand’s initial and its territory in a single mark.',
+        },
+        {
+          title: 'Color & Typography',
+          images: [grupoUrbexColor],
+          body: 'In a traditional market, we kept the visual system professional and restrained, and let color do the breaking. Instead of the blues and greys that dominate real estate, we went to the material itself: brick. Terracotta, a deep burgundy, gives the brand weight and roots. Fire, a bright orange, brings action and decision. Warm whites balance the system, and Neue Montreal holds it all with precision. Serious in form, unexpected in color.',
+        },
+        {
+          title: 'Photography',
+          images: [grupoUrbexPhotography],
+          body: 'Solidity, not luxury. Natural light on concrete and glass, buildings under construction, raw materials and hands at work, with people shown in real moments: a meeting, a site visit, a conversation.',
+        },
+        {
+          title: 'The result',
+          images: [grupoUrbexResult],
+          body: 'A brand ready to communicate from day one: a complete brandbook with a manifesto, key messages and narrative pillars, a mobile-first institutional deck built for WhatsApp, 9 post and 9 story templates, and an Instagram playbook so the team can run it on their own.',
+        },
+        {
+          title: 'Client quote',
+          images: [grupoUrbexQuote],
+          body: '“They did an amazing job. Congratulations.”',
+          attribution: 'Nicolás Silveyra, Co-Founder',
+        },
+      ],
+      team: [
+        {
+          title: 'Team, Grupo Urbex',
+          members: [{ role: 'Co-Founder', name: 'Nicolás Silveyra' }],
+        },
+        {
+          title: 'Team, [ enlace ]',
+          members: [
+            { role: 'Narrative Craft & Strategy', name: 'Nico Deges' },
+            { role: 'Brand Design', name: 'Florencia Ceresa' },
+          ],
+        },
+      ],
+    },
   },
   {
     name: 'Monada',
@@ -306,6 +393,56 @@ export const projects = [
     row: 2,
     col: 3,
     image: lucilaBarattiniCover,
+    detail: {
+      heroVideo: lucilaBarattiniHeroVideo,
+      excerpt:
+        'A creative director and brand image consultant born in Buenos Aires and based in Madrid. We designed and built a website where her work leads and her eye does the talking.',
+      category: 'Web Design & Copywriting',
+      location: 'Madrid, Spain',
+      year: '2026',
+      copy: 'For someone who makes everything look like a film, the website had to feel like one.',
+      sections: [
+        {
+          title: 'The challenge',
+          images: [lucilaBarattiniChallenge],
+          body: 'Lucila works across fashion, jewelry, gastronomy, hospitality and events, from creative direction to table styling. Her work was strong, but scattered. She needed one place that could hold all of it, speak to brands in any market and let her keep it updated on her own.',
+        },
+        {
+          title: 'The concept',
+          images: [lucilaBarattiniConcept],
+          body: 'A portfolio that behaves like an editorial. Images come first, text steps back, and every project is presented the way she would present it in person: curated, with space and intention.',
+        },
+        {
+          title: 'Design & Structure',
+          body: 'A clean, minimal, high-end design where photography is the protagonist. The work is organized by industry, so a hotel, a jewelry brand or a restaurant can find what speaks to them in seconds, with a clear path from portfolio to services to contact.',
+        },
+        {
+          title: 'Copywriting',
+          body: 'We wrote every word on the site: her bio, her services and the way each project is introduced. A voice as curated as her work, clear enough for any brand to understand what she does and why to call her.',
+        },
+        {
+          title: 'Self-Managed System',
+          body: 'Designed and developed so Lucila can add projects, update services and change images herself, without depending on anyone. The site grows at the same pace her work does.',
+        },
+        {
+          title: 'The result',
+          body: 'A website that works as her main business tool: a portfolio to show, a presentation to send and a closing piece for new clients across Spain, Europe and Latin America.',
+        },
+      ],
+      team: [
+        {
+          title: 'Team, Lucila Barattini',
+          members: [{ role: 'Creative Director & Brand Image Consultant', name: 'Lucila Barattini' }],
+        },
+        {
+          title: 'Team, [ enlace ]',
+          members: [
+            { role: 'Narrative Craft & Strategy', name: 'Nico Deges' },
+            { role: 'Brand Design & Development', name: 'Florencia Ceresa' },
+          ],
+        },
+      ],
+    },
   },
   {
     name: 'Influence Energy',
@@ -320,6 +457,80 @@ export const projects = [
     row: 3,
     col: 4,
     image: conteinerCover,
+    detail: {
+      heroImage: conteinerHero,
+      excerpt:
+        'A furniture and ceramics brand handmade by a family in northern Argentina. The brand had already changed. We helped it find the identity to match.',
+      category: 'Brand Strategy & Identity',
+      location: 'Salta · Buenos Aires, Argentina',
+      year: '2026',
+      copy: 'Salta doesn’t decorate the brand. It makes it.',
+      sections: [
+        {
+          title: 'The challenge',
+          images: [conteinerChallenge],
+          body: 'Conteiner started as an imported clothing brand. Today it makes furniture and ceramics: the father a blacksmith, the mother a ceramist, the daughter selling from Buenos Aires what they build in Salta. The product and the audience had changed. The brand hadn’t. It didn’t need to be invented. It needed to be revealed.',
+        },
+        {
+          title: 'The concept',
+          images: [conteinerConcept],
+          body: 'We called the new chapter Roots to Room and built it around one idea: The Trace of the North. Every piece carries a gesture, from the precise cut of the steel tube to the freehand stroke on ceramic. Three hands, three crafts, one trace. The positioning: design with roots.',
+        },
+        {
+          title: 'Tone of Voice',
+          images: [conteinerTone],
+          body: 'Warm, honest and free. It speaks like a friend, not a brand, and tells how each piece is made without dressing it up. Its archetype is The Host: it welcomes you into a world that was already there.',
+        },
+        {
+          title: 'The Logo',
+          images: [conteinerLogo],
+          body: 'A custom logotype built from a serif typeface, reshaped and finished with a texture that brings the mark of the hand and the workshop. A bold, compact secondary mark, CNTR, adds a more direct and contemporary voice when the brand needs impact.',
+        },
+        {
+          title: 'Color',
+          images: [conteinerColor],
+          body: 'The palette isn’t chosen. It’s extracted from the landscape. Clay, earth, mountains, stone and the vegetation of Salta, with small light blue accents. Nothing comes from outside the territory, so the origin is present even when it isn’t shown.',
+        },
+        {
+          title: 'Typography & Graphic Elements',
+          images: [conteinerTypography],
+          body: 'Manrope in a single weight, with hierarchy built only through size and position, balances the more expressive parts of the system: stones drawn from real Salta landscapes and stickers that mark an origin, a material, a measure or a coordinate.',
+        },
+        {
+          title: 'Photostyle',
+          images: [conteinerPhotostyle],
+          body: 'Guidelines for the brand’s first shoot: warm interiors with natural light, color already present in the space, and freer images of Salta’s landscapes, textures and the hands behind each piece.',
+        },
+        {
+          title: 'The result',
+          images: [conteinerResult],
+          body: 'A complete brandbook with strategy, visual and verbal identity and applications, a starter kit of 9 post and 9 story templates, and photostyle guidelines to take the brand from the page to its first shoot.',
+        },
+        {
+          title: 'Client quote',
+          images: [conteinerQuote],
+          body: '“I’m so grateful for the incredible work we did together. I have nothing to add or remove, and that tells me you understood exactly what I wanted to say.”',
+          attribution: 'Lumena Fernández Mirabelli, Founder',
+        },
+      ],
+      team: [
+        {
+          title: 'Team, Conteiner',
+          members: [{ role: 'Founder', name: 'Lumena Fernández Mirabelli' }],
+        },
+        {
+          title: 'Team, [ enlace ]',
+          members: [{ role: 'Narrative Craft & Strategy', name: 'Nico Deges' }],
+        },
+        {
+          title: 'In collaboration with',
+          members: [
+            { role: 'Brand Identity', name: 'D17 Studio' },
+            { role: 'Brand Identity', name: 'Delfina Ferrero' },
+          ],
+        },
+      ],
+    },
   },
 ].map((project) => ({
   ...project,
